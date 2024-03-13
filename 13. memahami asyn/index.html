@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1 class="header"></h1>
+<div class="isi" style="border: 1px solid blue; padding:5px;"></div>
+
+    <script>
+       
+       const pictures = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg']
+        const token = ~~[Math.random(10)*1234566]
+
+       function login(username){
+        console.log("memvalidasi data")
+        const promise = new Promise((resolve,reject)=>{
+             setTimeout(()=>{
+             if(username !== 'anwar hakim'){
+                reject('wrong username')
+                
+             }else{
+                resolve({token,username})
+             }
+        },2000)
+        })
+        return promise;
+       }
+        
+
+       function getuser(token){
+        const promise = new Promise((resolve,rejected)=>{
+             setTimeout(()=>{ 
+            if(!token){
+           
+            rejected('tidak ada token')
+        }else{
+            
+               resolve( {apikey:"123key"})
+               
+        
+        }
+              },2000)  
+        }) 
+        return promise;
+       }
+
+
+       function getPicture(apikey){
+        const promise = new Promise((resolve,rejected)=>{
+            if(apikey){
+            setTimeout(()=>{
+                resolve({pictures,apikey})  
+            },2000)
+        }
+        })
+        return promise;
+        
+       }
+
+     
+ 
+
+
+    </script>
+</body>
+</html>
